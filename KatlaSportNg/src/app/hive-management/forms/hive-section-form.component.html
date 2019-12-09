@@ -28,7 +28,7 @@
         <label for="hive" id="hiveLabel">Hive</label>
         <select class="custom-select" [(ngModel)]="hiveSection.hiveId" id="hive" aria-describedby="hiveLabel" #category="ngModel"
           [ngModelOptions]="{standalone: true}">
-          <option *ngFor="let hive of hives" [ngValue]="hive.id">{{hive.name}}</option>
+          <option *ngFor="let hive of hives" [ngValue]="hive.id" selected>{{hive.name}}</option>
         </select>
       </div>
       <div class="form-group" *ngIf='existed'>

@@ -10,6 +10,8 @@ import { ProductFormComponent } from './product-management/forms/product-form.co
 import { ProductCategoryListComponent } from './product-management/lists/product-category-list.component';
 import { ProductCategoryProductListComponent } from './product-management/lists/product-category-product-list.component';
 import { ProductListComponent } from './product-management/lists/product-list.component';
+import { LocationListComponent } from './staff-management/lists/location-list.component';
+import { LocationFormComponent } from './staff-management/forms/location-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -27,6 +29,9 @@ const routes: Routes = [
   { path: 'hive/:id/sections', component: HiveSectionListComponent },
   { path: 'hive/:hiveId/section', component: HiveSectionFormComponent },
   { path: 'hive/:hiveId/section/:id', component: HiveSectionFormComponent },
+  { path: 'locations', component: LocationListComponent },
+  { path: 'location', component: LocationFormComponent },
+  { path: 'location/:id', component: LocationFormComponent },
 ];
 
 @NgModule({

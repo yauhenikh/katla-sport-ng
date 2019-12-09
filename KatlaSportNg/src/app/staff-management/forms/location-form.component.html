@@ -1,0 +1,57 @@
+<div class="container">
+  <h2>Location Editor</h2>
+  <form (ngSubmit)="onSubmit()" #locationForm="ngForm">
+    <div class="form-group" *ngIf='existed'>
+      <label for="idLabel">ID</label>
+      <input type="text" class="form-control" id="id" aria-describedby="idLabel" [(ngModel)]="location.id" name="id" #id="ngModel"
+        readonly>
+    </div>
+    <div class="form-group">
+      <label for="name" id="nameLabel">Location Name</label>
+      <input type="text" class="form-control" id="name" aria-describedby="nameLabel" minlength="4" maxlength="60" required [(ngModel)]="location.name"
+        name="name" #name="ngModel">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+        <div *ngIf="name.errors.required">Location Name is required.</div>
+        <div *ngIf="name.errors.minlength">Location Name must be at least 4 characters long.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="country" id="countryLabel">Location Country</label>
+      <input type="text" class="form-control" id="country" aria-describedby="countryLabel" minlength="2" maxlength="30" required [(ngModel)]="location.country"
+        name="country" #country="ngModel">
+      <div *ngIf="country.invalid && (country.dirty || country.touched)" class="alert alert-danger">
+        <div *ngIf="country.errors.required">Location Country is required.</div>
+        <div *ngIf="country.errors.minlength">Location Country must be at least 2 characters long.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address" id="addressLabel">Location Address</label>
+      <input type="text" class="form-control" id="address" aria-describedby="addressLabel" minlength="5" maxlength="100" required [(ngModel)]="location.address"
+        name="address" #address="ngModel">
+      <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+        <div *ngIf="address.errors.required">Location Address is required.</div>
+        <div *ngIf="address.errors.minlength">Location Address must be at least 5 characters long.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="postalCode" id="postalCodeLabel">Location Postal Code</label>
+      <input type="text" class="form-control" id="postalCode" aria-describedby="postalCodeLabel" minlength="2" maxlength="10" required [(ngModel)]="location.postalCode"
+        name="postalCode" #postalCode="ngModel">
+      <div *ngIf="postalCode.invalid && (postalCode.dirty || postalCode.touched)" class="alert alert-danger">
+        <div *ngIf="postalCode.errors.required">Location Postal Code is required.</div>
+        <div *ngIf="postalCode.errors.minlength">Location Postal Code must be at least 2 characters long.</div>
+      </div>
+    </div>
+    <div class="btn-toolbar" role="toolbar" aria-label="Action buttons">
+      <div class="btn-group mr-1" role="group" aria-label="Cancel group">
+        <button type="button" class="btn btn-primary" (click)="onCancel()">Back</button>
+      </div>
+      <div class="btn-group mr-4" role="group" aria-label="Save group">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+      <div class="btn-group" role="group" aria-label="Purge group" *ngIf="existed">
+        <button type="button" class="btn btn-danger" (click)="onPurge()">Purge</button>
+      </div>
+    </div>
+  </form>
+</div>
