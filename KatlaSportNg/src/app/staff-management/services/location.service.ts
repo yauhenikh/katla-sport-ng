@@ -4,6 +4,7 @@ import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { Location } from '../models/location';
 import { LocationListItem } from '../models/location-list-item';
+import { DepartmentListItem } from '../models/department-list-item';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,10 @@ export class LocationService {
 
   getLocation(locationId: number): Observable<Location> {
     return this.http.get<Location>(`${this.url}${locationId}`);
+  }
+
+  getDepartments(locationId: number): Observable<Array<DepartmentListItem>> {
+    return this.http.get<Array<DepartmentListItem>>(`${this.url}${locationId}/departments`);
   }
 
   addLocation(location: Location): Observable<Location> {

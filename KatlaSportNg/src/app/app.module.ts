@@ -2,7 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from 'app/app-routing.module';
 import { AppComponent } from 'app/app.component';
 import { HiveFormComponent } from 'app/hive-management/forms/hive-form.component';
@@ -22,6 +22,13 @@ import { ProductService } from 'app/product-management/services/product.service'
 import { LocationListComponent } from './staff-management/lists/location-list.component';
 import { LocationFormComponent } from './staff-management/forms/location-form.component';
 import { LocationService } from './staff-management/services/location.service';
+import { PositionListComponent } from './staff-management/lists/position-list.component';
+import { PositionFormComponent } from './staff-management/forms/position-form.component';
+import { PositionService } from './staff-management/services/position.service';
+import { DepartmentListComponent } from './staff-management/lists/department-list.component';
+import { DepartmentFormComponent } from './staff-management/forms/department-form.component';
+import { DepartmentService } from './staff-management/services/department.service';
+import { DepartmentLocationListComponent } from './staff-management/lists/department-location-list.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +44,12 @@ import { LocationService } from './staff-management/services/location.service';
     HiveSectionFormComponent,
     HiveSectionListComponent,
     LocationListComponent,
-    LocationFormComponent
+    LocationFormComponent,
+    PositionListComponent,
+    PositionFormComponent,
+    DepartmentListComponent,
+    DepartmentFormComponent,
+    DepartmentLocationListComponent
   ],
   imports: [
     // Angular imports
@@ -45,6 +57,7 @@ import { LocationService } from './staff-management/services/location.service';
     FormsModule,
     NgbModule.forRoot(),
     HttpClientModule,
+    NgbCollapseModule,
     // Application imports
     AppRoutingModule,
   ],
@@ -56,7 +69,9 @@ import { LocationService } from './staff-management/services/location.service';
     ProductCategoryService,
     HiveService,
     HiveSectionService,
-    LocationService
+    LocationService,
+    PositionService,
+    DepartmentService
   ],
   bootstrap: [AppComponent]
 })

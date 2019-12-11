@@ -1,0 +1,47 @@
+<div class="container">
+  <h2>Department Editor</h2>
+  <form (ngSubmit)="onSubmit()" #departmentForm="ngForm">
+    <div class="form-group" *ngIf='existed'>
+      <label for="idLabel">ID</label>
+      <input type="text" class="form-control" id="id" aria-describedby="idLabel" [(ngModel)]="department.id" name="id" #id="ngModel"
+        readonly>
+    </div>
+    <div class="form-group">
+      <label for="name" id="nameLabel">Department Name</label>
+      <input type="text" class="form-control" id="name" aria-describedby="nameLabel" minlength="4" maxlength="60" required [(ngModel)]="department.name"
+        name="name" #name="ngModel">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+        <div *ngIf="name.errors.required">Department Name is required.</div>
+        <div *ngIf="name.errors.minlength">Department Name must be at least 4 characters long.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone" id="phoneLabel">Department Phone</label>
+      <input type="text" class="form-control" id="phone" aria-describedby="phoneLabel" minlength="3" maxlength="20" required [(ngModel)]="department.phone"
+        name="phone" #phone="ngModel">
+      <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+        <div *ngIf="phone.errors.required">Department Phone is required.</div>
+        <div *ngIf="phone.errors.minlength">Department Phone must be at least 3 characters long.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="location" id="locationLabel">Department Location</label>
+      <select class="custom-select" [(ngModel)]="department.locationId" id="location" aria-describedby="locationLabel" #location="ngModel"
+        [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let location of locations" [ngValue]="location.id">{{location.id}} - {{location.name}}</option>
+      </select>
+    </div>
+    <div class="btn-toolbar" role="toolbar" aria-label="Action buttons">
+      <div class="btn-group mr-1" role="group" aria-label="Cancel group">
+        <button type="button" class="btn btn-primary" (click)="onCancel()">Back</button>
+      </div>
+      <div class="btn-group mr-4" role="group" aria-label="Save group">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+      <div class="btn-group" role="group" aria-label="Purge group" *ngIf="existed">
+        <button type="button" class="btn btn-danger" (click)="onPurge()">Purge</button>
+      </div>
+    </div>
+  </form>
+</div>
+

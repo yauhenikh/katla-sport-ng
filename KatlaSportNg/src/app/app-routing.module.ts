@@ -12,6 +12,11 @@ import { ProductCategoryProductListComponent } from './product-management/lists/
 import { ProductListComponent } from './product-management/lists/product-list.component';
 import { LocationListComponent } from './staff-management/lists/location-list.component';
 import { LocationFormComponent } from './staff-management/forms/location-form.component';
+import { PositionListComponent } from './staff-management/lists/position-list.component';
+import { PositionFormComponent } from './staff-management/forms/position-form.component';
+import { DepartmentListComponent } from './staff-management/lists/department-list.component';
+import { DepartmentFormComponent } from './staff-management/forms/department-form.component';
+import { DepartmentLocationListComponent } from './staff-management/lists/department-location-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -32,6 +37,15 @@ const routes: Routes = [
   { path: 'locations', component: LocationListComponent },
   { path: 'location', component: LocationFormComponent },
   { path: 'location/:id', component: LocationFormComponent },
+  { path: 'location/:id/departments', component: DepartmentLocationListComponent },
+  { path: 'location/:locationId/department', component: DepartmentFormComponent },
+  { path: 'location/:locationId/department/:id', component: DepartmentFormComponent },
+  { path: 'positions', component: PositionListComponent },
+  { path: 'position', component: PositionFormComponent },
+  { path: 'position/:id', component: PositionFormComponent },
+  { path: 'departments', component: DepartmentListComponent },
+  { path: 'department', component: DepartmentFormComponent },
+  { path: 'department/:id', component: DepartmentFormComponent },
 ];
 
 @NgModule({
