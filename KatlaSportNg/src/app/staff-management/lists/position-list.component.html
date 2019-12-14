@@ -14,6 +14,9 @@
         <td>{{position.employeeCount}}</td>
         <td>
           <span class="btn-toolbar" role="toolbar" aria-label="Position action buttons" style="display: block; white-space:nowrap;">
+            <div class="btn-group mr-1" role="group" aria-label="View department employees">
+              <button routerLink="/position/{{position.id}}/employees" type="button" class="btn btn-primary">View position employees</button>
+            </div>
             <div class="btn-group" role="group" aria-label="Edit group">
               <button routerLink="/position/{{position.id}}" type="button" class="btn btn-primary">Edit</button>
             </div>

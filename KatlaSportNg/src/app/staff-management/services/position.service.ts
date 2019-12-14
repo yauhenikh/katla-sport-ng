@@ -4,6 +4,7 @@ import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { Position } from '../models/position';
 import { PositionListItem } from '../models/position-list-item';
+import { EmployeeListItem } from '../models/employee-list-item';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,10 @@ export class PositionService {
 
   getPosition(positionId: number): Observable<Position> {
     return this.http.get<Position>(`${this.url}/show/${positionId}`);
+  }
+
+  getEmployees(positionId: number): Observable<Array<EmployeeListItem>> {
+    return this.http.get<Array<EmployeeListItem>>(`${this.url}/show/${positionId}/employees`);
   }
 
   addPosition(position: Position): Observable<Position> {

@@ -17,6 +17,11 @@ import { PositionFormComponent } from './staff-management/forms/position-form.co
 import { DepartmentListComponent } from './staff-management/lists/department-list.component';
 import { DepartmentFormComponent } from './staff-management/forms/department-form.component';
 import { DepartmentLocationListComponent } from './staff-management/lists/department-location-list.component';
+import { EmployeeFormComponent } from './staff-management/forms/employee-form.component';
+import { EmployeeListComponent } from './staff-management/lists/employee-list.component';
+import { EmployeeReportstoListComponent } from './staff-management/lists/employee-reportsto-list.component';
+import { EmployeeDepartmentListComponent } from './staff-management/lists/employee-department-list.component';
+import { EmployeePositionListComponent } from './staff-management/lists/employee-position-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -43,9 +48,19 @@ const routes: Routes = [
   { path: 'positions', component: PositionListComponent },
   { path: 'position', component: PositionFormComponent },
   { path: 'position/:id', component: PositionFormComponent },
+  { path: 'position/:id/employees', component: EmployeePositionListComponent },
+  { path: 'position/:positionId/employee', component: EmployeeFormComponent },
+  { path: 'position/:positionId/employee/:id', component: EmployeeFormComponent },
   { path: 'departments', component: DepartmentListComponent },
   { path: 'department', component: DepartmentFormComponent },
   { path: 'department/:id', component: DepartmentFormComponent },
+  { path: 'department/:id/employees', component: EmployeeDepartmentListComponent },
+  { path: 'department/:departmentId/employee', component: EmployeeFormComponent },
+  { path: 'department/:departmentId/employee/:id', component: EmployeeFormComponent },
+  { path: 'employees', component: EmployeeListComponent },
+  { path: 'employee', component: EmployeeFormComponent },
+  { path: 'employee/:id', component: EmployeeFormComponent },
+  { path: 'employee/:id/subordinates', component: EmployeeReportstoListComponent },
 ];
 
 @NgModule({

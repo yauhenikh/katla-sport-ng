@@ -29,6 +29,12 @@ import { DepartmentListComponent } from './staff-management/lists/department-lis
 import { DepartmentFormComponent } from './staff-management/forms/department-form.component';
 import { DepartmentService } from './staff-management/services/department.service';
 import { DepartmentLocationListComponent } from './staff-management/lists/department-location-list.component';
+import { EmployeeService } from './staff-management/services/employee.service';
+import { EmployeeFormComponent } from './staff-management/forms/employee-form.component';
+import { EmployeeListComponent } from './staff-management/lists/employee-list.component';
+import { EmployeeReportstoListComponent } from './staff-management/lists/employee-reportsto-list.component';
+import { EmployeeDepartmentListComponent } from './staff-management/lists/employee-department-list.component';
+import { EmployeePositionListComponent } from './staff-management/lists/employee-position-list.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +55,12 @@ import { DepartmentLocationListComponent } from './staff-management/lists/depart
     PositionFormComponent,
     DepartmentListComponent,
     DepartmentFormComponent,
-    DepartmentLocationListComponent
+    DepartmentLocationListComponent,
+    EmployeeFormComponent,
+    EmployeeListComponent,
+    EmployeeReportstoListComponent,
+    EmployeeDepartmentListComponent,
+    EmployeePositionListComponent
   ],
   imports: [
     // Angular imports
@@ -71,7 +82,8 @@ import { DepartmentLocationListComponent } from './staff-management/lists/depart
     HiveSectionService,
     LocationService,
     PositionService,
-    DepartmentService
+    DepartmentService,
+    EmployeeService
   ],
   bootstrap: [AppComponent]
 })
