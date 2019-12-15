@@ -35,6 +35,10 @@ import { EmployeeListComponent } from './staff-management/lists/employee-list.co
 import { EmployeeReportstoListComponent } from './staff-management/lists/employee-reportsto-list.component';
 import { EmployeeDepartmentListComponent } from './staff-management/lists/employee-department-list.component';
 import { EmployeePositionListComponent } from './staff-management/lists/employee-position-list.component';
+import { DocumentListComponent } from './staff-management/lists/document-list.component';
+import { DocumentEmployeeListComponent } from './staff-management/lists/document-employee-list.component';
+import { DocumentService } from './staff-management/services/document.service';
+import { DocumentFormComponent } from './staff-management/forms/document-form.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +64,10 @@ import { EmployeePositionListComponent } from './staff-management/lists/employee
     EmployeeListComponent,
     EmployeeReportstoListComponent,
     EmployeeDepartmentListComponent,
-    EmployeePositionListComponent
+    EmployeePositionListComponent,
+    DocumentListComponent,
+    DocumentEmployeeListComponent,
+    DocumentFormComponent
   ],
   imports: [
     // Angular imports
@@ -83,7 +90,8 @@ import { EmployeePositionListComponent } from './staff-management/lists/employee
     LocationService,
     PositionService,
     DepartmentService,
-    EmployeeService
+    EmployeeService,
+    DocumentService
   ],
   bootstrap: [AppComponent]
 })

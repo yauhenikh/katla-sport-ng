@@ -22,6 +22,9 @@ import { EmployeeListComponent } from './staff-management/lists/employee-list.co
 import { EmployeeReportstoListComponent } from './staff-management/lists/employee-reportsto-list.component';
 import { EmployeeDepartmentListComponent } from './staff-management/lists/employee-department-list.component';
 import { EmployeePositionListComponent } from './staff-management/lists/employee-position-list.component';
+import { DocumentListComponent } from './staff-management/lists/document-list.component';
+import { DocumentFormComponent } from './staff-management/forms/document-form.component';
+import { DocumentEmployeeListComponent } from './staff-management/lists/document-employee-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -61,6 +64,12 @@ const routes: Routes = [
   { path: 'employee', component: EmployeeFormComponent },
   { path: 'employee/:id', component: EmployeeFormComponent },
   { path: 'employee/:id/subordinates', component: EmployeeReportstoListComponent },
+  { path: 'employee/:id/documents', component: DocumentEmployeeListComponent },
+  { path: 'employee/:employeeId/document', component: DocumentFormComponent },
+  { path: 'employee/:employeeId/document/:id', component: DocumentFormComponent },
+  { path: 'documents', component: DocumentListComponent },
+  { path: 'document', component: DocumentFormComponent },
+  { path: 'document/:id', component: DocumentFormComponent },
 ];
 
 @NgModule({

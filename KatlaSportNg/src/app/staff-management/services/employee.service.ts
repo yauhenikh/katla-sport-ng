@@ -4,6 +4,7 @@ import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { EmployeeListItem } from '../models/employee-list-item';
 import { Employee } from '../models/employee';
+import { DocumentListItem } from '../models/document-list-item';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class EmployeeService {
 
   getSubordinates(employeeId: number): Observable<Array<EmployeeListItem>> {
     return this.http.get<Array<EmployeeListItem>>(`${this.url}${employeeId}/subordinates`);
+  }
+
+  getDocuments(employeeId: number) : Observable<Array<DocumentListItem>> {
+    return this.http.get<Array<DocumentListItem>>(`${this.url}${employeeId}/documents`);
   }
 
   addEmployee(employee: Employee): Observable<Employee> {
