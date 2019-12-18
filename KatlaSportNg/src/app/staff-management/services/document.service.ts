@@ -36,6 +36,6 @@ export class DocumentService {
   uploadFile(fileToUpload : File) {
     var formData: FormData = new FormData();
     formData.append('UploadFile', fileToUpload);
-    return this.http.post(`${this.url}/upload`, formData).subscribe();
+    return this.http.post(`${this.url}/upload`, formData);
   }
 }

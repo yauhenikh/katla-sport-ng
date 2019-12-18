@@ -51,7 +51,8 @@ export class DocumentFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.documentService.uploadFile(this.fileToUpload);
+    this.document.fileName = this.document.id + '-' + this.fileToUpload.name;
+    this.documentService.uploadFile(this.fileToUpload).subscribe();
 
     if (this.existed) {
       this.documentService.updateDocument(this.document).subscribe(d => this.navigateTo());
