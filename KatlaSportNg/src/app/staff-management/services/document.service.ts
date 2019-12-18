@@ -32,4 +32,10 @@ export class DocumentService {
   deleteDocument(documentId: number): Observable<Object> {
     return this.http.delete<Object>(`${this.url}${documentId}`);
   }
+
+  uploadFile(fileToUpload : File) {
+    var formData: FormData = new FormData();
+    formData.append('UploadFile', fileToUpload);
+    return this.http.post(`${this.url}/upload`, formData).subscribe();
+  }
 }

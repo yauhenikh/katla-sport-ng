@@ -32,7 +32,7 @@
     </div>
 
     <div class="form-group">
-      <input id="uploadForm" type="file" name="file" (change)="uploadFile($event.target.files)">
+      <input type="file" #UploadFile (change)="handleFileInput($event.target.files)">
     </div>
 
 

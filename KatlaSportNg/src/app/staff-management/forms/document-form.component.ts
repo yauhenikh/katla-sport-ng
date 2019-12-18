@@ -18,7 +18,7 @@ export class DocumentFormComponent implements OnInit {
   existed = false;
   employeeId: number;
   employees: EmployeeListItem[];
-  fileToUpload: File;
+  fileToUpload: File = null;
 
   constructor(
     private http: HttpClient,
@@ -51,6 +51,8 @@ export class DocumentFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.documentService.uploadFile(this.fileToUpload);
+
     if (this.existed) {
       this.documentService.updateDocument(this.document).subscribe(d => this.navigateTo());
     } else {
@@ -62,13 +64,7 @@ export class DocumentFormComponent implements OnInit {
     this.documentService.deleteDocument(this.document.id).subscribe(d => this.navigateTo());
   }
 
-  uploadFile(files: FileList) {
+  handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
-    var formData = new FormData();
-    formData.append('file', this.fileToUpload, this.fileToUpload.name);
-    this.http.post(environment.apiUrl + 'api/documents/upload', formData);
-
-    return false;
   }
-
 }
